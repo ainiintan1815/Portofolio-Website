@@ -1,0 +1,1894 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aini Intan Saylendra — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+/* ══════════════════════════════════════════
+   CSS VARIABLES — DARK & LIGHT MODE
+══════════════════════════════════════════ */
+:root {
+  --bg-grad: linear-gradient(135deg,#0d1e3f,#000000,#24001d);
+  --surface: rgba(255,255,255,0.06);
+  --surface2: rgba(255,255,255,0.1);
+  --border: rgba(255,255,255,0.07);
+  --border-hover: rgba(255,255,255,0.18);
+  --text: #f5f5f5;
+  --text-muted: rgba(255,255,255,0.7);
+  --text-dim: rgba(245,245,245,0.65);
+  --accent: #e0c3fc;
+  --accent2: #f0b8d8;
+  --accent-glow: rgba(155,56,124,0.2);
+  --nav-bg: rgba(0,0,0,0.125);
+  --card-bg: rgba(255,255,255,0.06);
+  --card-border: rgba(255,255,255,0.08);
+  --card-hover-border: rgba(255,255,255,0.2);
+  --modal-bg: rgba(13,10,30,0.97);
+  --modal-border: rgba(255,255,255,0.15);
+  --input-bg: rgba(255,255,255,0.06);
+  --input-border: rgba(255,255,255,0.15);
+  --input-text: #f5f5f5;
+  --footer-bg: transparent;
+  --divider-color: rgba(255,255,255,0.07);
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'DM Sans', sans-serif;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+  --grad-text: linear-gradient(135deg, #e0c3fc 0%, #f0b8d8 40%, #fbbf74 80%, #e0c3fc 100%);
+  --star-color: rgba(255,255,255,0.8);
+  --shooting-star-grad: linear-gradient(90deg, #fff, #e0c3fc, transparent);
+  --mobile-px: 22px;
+  --tablet-px: 32px;
+}
+
+body.light-mode {
+  --bg-grad: linear-gradient(135deg,#c7dbff 0%,#ffffff 50%,#ecc2ff 100%);
+  --surface: rgba(0,0,0,0.06);
+  --surface2: rgba(0,0,0,0.1);
+  --border: rgba(0,0,0,0.15);
+  --border-hover: rgba(0,0,0,0.35);
+  --text: #1a1025;
+  --text-muted: #3d2d50;
+  --text-dim: #4a3960;
+  --accent: #6d28d9;
+  --accent2: #b5509c;
+  --accent-glow: rgba(109,40,217,0.12);
+  --nav-bg: rgba(255,255,255,0.82);
+  --card-bg: rgba(255,255,255,0.85);
+  --card-border: rgba(0,0,0,0.18);
+  --card-hover-border: rgba(109,40,217,0.45);
+  --modal-bg: rgba(255,255,255,0.99);
+  --modal-border: rgba(0,0,0,0.18);
+  --input-bg: rgba(255,255,255,0.95);
+  --input-border: rgba(0,0,0,0.25);
+  --input-text: #1a1025;
+  --footer-bg: rgba(0,0,0,0.04);
+  --divider-color: rgba(0,0,0,0.12);
+  --grad-text: linear-gradient(135deg,#6d28d9 0%,#b5509c 40%,#e8820c 80%,#6d28d9 100%);
+  --star-color: rgba(109,40,217,0.5);
+  --shooting-star-grad: linear-gradient(90deg, #6d28d9, #b5509c, transparent);
+}
+
+body.light-mode #opening-overlay {
+  color: #ffffff !important;
+}
+body.light-mode #opening-overlay .btn-outline {
+  color: #ffffff !important;
+  border-color: rgba(255,255,255,0.4) !important;
+  background: transparent !important;
+}
+body.light-mode #opening-overlay .btn-outline:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg-grad);
+  background-attachment: fixed;
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background 0.5s ease, color 0.4s ease;
+}
+
+/* ── GRADIENT TEXT ── */
+.grad-text {
+  background: var(--grad-text);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradShift 4s ease infinite;
+}
+@keyframes gradShift {
+  0%,100%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+}
+
+/* ── CURSOR GLOW ── */
+.cursor-glow {
+  position:fixed; width:250px; height:250px;
+  border-radius:50%; pointer-events:none;
+  background:radial-gradient(circle,rgba(109,45,89,0.5),rgba(155,56,124,0.25),transparent 60%);
+  transform:translate(-50%,-50%);
+  z-index:9999; filter:blur(20px);
+  transition: background 0.5s;
+}
+body.light-mode .cursor-glow {
+  background:radial-gradient(circle,rgba(109,40,217,0.18),rgba(181,80,156,0.1),transparent 60%);
+}
+
+/* ── TYPING ── */
+#typing-text { font-size:2rem; font-weight:600; color:var(--accent); letter-spacing:0.5px; }
+body.light-mode #typing-text { color: #6d28d9; -webkit-text-fill-color: #6d28d9; }
+.cursor {
+  display:inline-block; font-size:2rem; margin-left:3px;
+  color:var(--accent); animation:blink 0.7s infinite;
+  position:relative; top:-2px;
+}
+body.light-mode .cursor { color: #2e0078; }
+@keyframes blink{0%,50%,100%{opacity:1;}25%,75%{opacity:0;}}
+
+/* ── NAV ── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:20px 32px;
+  border-bottom:1px solid var(--border);
+  background:var(--nav-bg);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  transition: background 0.4s, border-color 0.4s;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-family:var(--serif); font-size:1.35rem; font-weight:400;
+  letter-spacing:0.02em; color:var(--text); text-decoration:none;
+}
+.logo-img { width:35px; height:35px; object-fit:contain; }
+.nav-logo .grad-text { font-style:italic; }
+
+.nav-links { display:flex; gap:36px; list-style:none; align-items:center; }
+.nav-links a {
+  font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--text-muted); text-decoration:none; font-weight:400;
+  transition:color var(--transition); position:relative;
+}
+body.light-mode .nav-links a { color: #3d2d50; }
+.nav-links a::after {
+  content:''; position:absolute; bottom:-4px; left:0;
+  width:0; height:1px; background:var(--accent);
+  transition:width var(--transition);
+}
+.nav-links a:hover, .nav-links a.active { color:var(--text); }
+body.light-mode .nav-links a:hover,
+body.light-mode .nav-links a.active { color: #1a1025; }
+.nav-links a:hover::after, .nav-links a.active::after { width:100%; }
+
+/* ── THEME TOGGLE ── */
+.theme-toggle {
+  width:44px; height:24px; border-radius:100px; border:1px solid var(--border-hover);
+  background:var(--surface2); cursor:pointer; position:relative;
+  transition:all 0.3s; flex-shrink:0; margin-left:20px;
+  display:flex; align-items:center; padding:2px;
+}
+.theme-toggle::after {
+  content:''; width:18px; height:18px; border-radius:50%;
+  background:var(--text-muted); transition:transform 0.3s, background 0.3s;
+  display:block;
+}
+body.light-mode .theme-toggle::after { transform:translateX(20px); background:var(--accent); }
+.theme-toggle .toggle-icon { position:absolute; font-size:10px; transition:opacity 0.3s; }
+.theme-toggle .icon-moon { left:5px; opacity:1; }
+.theme-toggle .icon-sun  { right:5px; opacity:0; }
+body.light-mode .theme-toggle .icon-moon { opacity:0; }
+body.light-mode .theme-toggle .icon-sun  { opacity:1; }
+
+/* ── SECTIONS ── */
+section {
+  position:relative; z-index:2; width:100%;
+  scroll-margin-top: 30px;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+.container { max-width:1100px; margin:0 auto; padding:0 32px; }
+.section-wrap { padding:100px 0; }
+
+/* ── SECTION HEADER ── */
+.section-label { font-size:0.7rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:12px; display:block; }
+.section-title { font-family:var(--serif); font-size:clamp(2rem,4vw,2.8rem); font-weight:300; margin-bottom:50px; line-height:1.15; }
+body.light-mode .section-title { color: #1a1025; }
+.section-title em, .section-title .grad-text { font-style:italic; }
+hr.divider { border:none; border-top:1px solid var(--divider-color); margin:0 6% 100px; }
+
+/* ── HERO ── */
+#home { min-height:100vh; display:flex; align-items:flex-start; padding-top:50px; }
+.hero-inner {
+  display:grid; grid-template-columns:1fr auto;
+  gap:60px; padding:100px 0 80px; align-items:center;
+}
+.hero-text { max-width:500px; }
+.hero-name { font-family:var(--serif); font-size:clamp(2.8rem,5.5vw,4.2rem); font-weight:300; line-height:1.1; margin-bottom:14px; letter-spacing:-0.01em; }
+.hero-ctas { display:flex; gap:25px; flex-wrap:wrap; margin-bottom:5px; margin-top:25px; }
+
+.btn-primary {
+  display:inline-flex; align-items:center; gap:8px; padding:12px 26px;
+  background:linear-gradient(45deg,#24014a,#320128);
+  color:white; border-radius:100px; font-size:0.8rem; font-weight:500;
+  letter-spacing:0.04em; text-decoration:none;
+  box-shadow:0 0 10px rgba(247,0,255,0.4);
+  transition:all var(--transition);
+}
+.btn-primary:hover { transform:scale(1.08) translateY(-2px); box-shadow:0 0 5px #ffffff,0 0 20px rgba(18,0,59,0.8); }
+body.light-mode .btn-primary {
+  background:linear-gradient(45deg,#6d28d9,#b5509c);
+  box-shadow:0 4px 16px rgba(109,40,217,0.35);
+  color: white;
+}
+
+.btn-outline {
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:12px 26px; border-radius:100px; background:transparent;
+  border:1px solid rgba(255,255,255,0.2); color:var(--text);
+  font-size:0.8rem; letter-spacing:0.04em; text-decoration:none;
+  transition:all 0.3s ease;
+}
+body.light-mode .btn-outline { border-color:rgba(0,0,0,0.3); color:#1a1025; }
+.btn-outline:hover { background:var(--text); color:#24001d; transform:scale(1.05); }
+body.light-mode .btn-outline:hover { background:#1a1025; color:#fff; }
+
+.hero-socials { margin-top:25px; display:flex; gap:14px; }
+.hero-socials a {
+  display:flex; align-items:center; justify-content:center;
+  width:42px; height:42px; border-radius:50%; text-decoration:none;
+  font-size:16px; color:var(--text); background:transparent;
+  border:1px solid var(--border-hover); transition:all 0.3s ease;
+}
+body.light-mode .hero-socials a { color:#1a1025; border-color:rgba(0,0,0,0.25); }
+.hero-socials a:hover { background:var(--text); color:#24001d; transform:scale(1.15); }
+body.light-mode .hero-socials a:hover { color:#fff; background:#1a1025; }
+
+/* ── HERO PHOTO ── */
+.hero-photo-wrap { flex-shrink:0; display:flex; align-items:center; }
+.hero-photo-frame {
+  position:relative; width:300px; height:300px;
+  display:flex; align-items:center; justify-content:center;
+}
+.hero-photo-frame::before, .hero-photo-frame::after {
+  content:''; position:absolute; border-radius:50%;
+  animation:spinFrame 8s linear infinite;
+}
+.hero-photo-frame::before {
+  inset:-8px;
+  background:conic-gradient(from 0deg, #e0c3fc, #f0b8d8, #fbbf74, #5eead4, #e0c3fc);
+  -webkit-mask:radial-gradient(farthest-side, transparent calc(100% - 3px), white calc(100% - 3px));
+  mask:radial-gradient(farthest-side, transparent calc(100% - 3px), white calc(100% - 3px));
+  filter:blur(0.5px);
+}
+.hero-photo-frame::after {
+  inset:-14px;
+  background:conic-gradient(from 180deg, rgba(224,195,252,0.25), rgba(240,184,216,0.1), transparent 60%);
+  border-radius:50%;
+  animation:spinFrame 12s linear infinite reverse;
+}
+@keyframes spinFrame { from{transform:rotate(0deg);}to{transform:rotate(360deg);} }
+.hero-photo {
+  width:280px; height:280px; object-fit:cover;
+  border-radius:50%; display:block; position:relative; z-index:2;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.hero-photo-frame:hover .hero-photo {
+  transform:scale(1.05);
+  box-shadow:0 0 40px rgba(224,195,252,0.5), 0 0 80px rgba(240,184,216,0.3);
+}
+.hero-photo-frame:hover::before { filter:blur(2px) brightness(1.4); }
+
+/* ── ABOUT ── */
+.about-grid { display:grid; grid-template-columns:1fr 1.7fr; gap:60px; align-items:start; }
+.about-photo-wrap { position:relative; width:fit-content; }
+.about-photo {
+  width:100%; max-width:240px; border-radius:var(--radius-lg);
+  display:block; border:1px solid var(--card-border);
+  filter:grayscale(10%); transition:all 0.4s ease; margin-bottom:24px;
+  position:relative; z-index:1;
+}
+body.light-mode .about-photo { border-color: rgba(0,0,0,0.2); }
+.about-photo:hover { filter:grayscale(0%); border-color:rgba(224,195,252,0.4); transform:scale(1.02); }
+.about-photo-wrap::before {
+  content:''; position:absolute; inset:-6px;
+  border-radius:calc(var(--radius-lg) + 6px);
+  background:conic-gradient(from 0deg, #e0c3fc44, #f0b8d844, #fbbf7444, transparent 50%, #e0c3fc44);
+  z-index:0; animation:spinFrame 10s linear infinite;
+  opacity:0; transition:opacity 0.4s;
+}
+.about-photo-wrap:hover::before { opacity:1; }
+.about-quick { display:flex; flex-direction:column; gap:10px; }
+.about-quick-item { display:flex; flex-direction:column; gap:2px; }
+.about-quick-label { font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); }
+body.light-mode .about-quick-label { color: #3d2d50; }
+.about-quick-value { font-size:0.85rem; color:var(--text-dim); }
+body.light-mode .about-quick-value { color: #4a3960; }
+.about-main p { font-size:0.95rem; color:var(--text-dim); margin-bottom:18px; font-weight:300; line-height:1.85; }
+body.light-mode .about-main p { color: #4a3960; }
+.about-main p strong { color:var(--text); font-weight:500; }
+body.light-mode .about-main p strong { color: #1a1025; }
+.edu-list { margin-top:32px; display:flex; flex-direction:column; gap:0; }
+.edu-item { display:flex; gap:20px; padding:18px 0; border-bottom:1px solid var(--border); align-items:flex-start; }
+body.light-mode .edu-item { border-color: rgba(0,0,0,0.12); }
+.edu-item:first-child { border-top:1px solid var(--border); }
+body.light-mode .edu-item:first-child { border-color: rgba(0,0,0,0.12); }
+.edu-year { font-size:0.72rem; letter-spacing:0.08em; color:var(--text-muted); white-space:nowrap; padding-top:3px; min-width:80px; }
+body.light-mode .edu-year { color: #3d2d50; }
+.edu-school { font-size:0.92rem; font-weight:500; color:var(--text); margin-bottom:2px; }
+body.light-mode .edu-school { color: #1a1025; }
+.edu-major { font-size:0.8rem; color:var(--text-muted); }
+body.light-mode .edu-major { color: #3d2d50; }
+
+/* ── SKILLS ── */
+.skills-grid { display:grid; grid-template-columns:1fr; gap:20px; }
+.skill-card {
+  background:var(--card-bg); border:1px solid var(--card-border);
+  border-radius:var(--radius); padding:24px;
+  backdrop-filter:blur(12px); transition:all var(--transition);
+  position:relative; overflow:hidden;
+}
+body.light-mode .skill-card { background: rgba(255,255,255,0.88); border-color: rgba(0,0,0,0.18); box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+.skill-card::after {
+  content:''; position:absolute; inset:0; opacity:0;
+  background:radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(224,195,252,0.06), transparent 60%);
+  transition:opacity 0.3s; pointer-events:none;
+}
+.skill-card:hover::after { opacity:1; }
+.skill-card:hover { border-color:var(--card-hover-border); transform:translateY(-3px); box-shadow:0 0 25px rgba(200,180,255,0.1); }
+.skill-card-label { font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin-bottom:20px; display:block; }
+body.light-mode .skill-card-label { color: #6d28d9; }
+.skill-icons { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.skill-box {
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  height:110px; border-radius:14px; background:var(--surface);
+  border:1px solid var(--card-border); transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1), border-color 0.3s, box-shadow 0.3s;
+  padding:12px; gap:8px; position:relative; overflow:hidden; cursor:default;
+}
+body.light-mode .skill-box { background: rgba(245,242,255,0.9); border-color: rgba(0,0,0,0.14); }
+.skill-box::before {
+  content:''; position:absolute; inset:0; opacity:0;
+  background:radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(224,195,252,0.15), transparent 60%);
+  transition:opacity 0.3s; pointer-events:none; border-radius:14px;
+}
+.skill-box:hover::before { opacity:1; }
+.skill-box img { width:44px; height:44px; object-fit:contain; }
+.skill-box p { font-size:0.75rem; color:var(--text-dim); text-align:center; }
+body.light-mode .skill-box p { color: #4a3960; }
+.skill-box:hover { transform:scale(1.12) translateY(-4px); border-color:rgba(192,132,252,0.5); box-shadow:0 8px 24px rgba(192,132,252,0.2); }
+body.light-mode .skill-box:hover { border-color:rgba(109,40,217,0.4); box-shadow:0 8px 24px rgba(109,40,217,0.15); }
+
+/* ── PROJECTS / EXPERIENCE GRID ── */
+.projects-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.project-card {
+  background:var(--card-bg); border:1px solid var(--card-border);
+  border-radius:var(--radius-lg); overflow:hidden;
+  transition:all var(--transition); cursor:pointer;
+  backdrop-filter:blur(12px); position:relative;
+}
+body.light-mode .project-card { background: rgba(255,255,255,0.88); border-color: rgba(0,0,0,0.18); box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+.project-card::before {
+  content:''; position:absolute; inset:0; z-index:1; pointer-events:none; opacity:0;
+  background:radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(224,195,252,0.08), transparent 60%);
+  transition:opacity 0.3s; border-radius:var(--radius-lg);
+}
+.project-card:hover::before { opacity:1; }
+.project-card:hover { border-color:var(--card-hover-border); transform:translateY(-6px); box-shadow:0 0 15px rgba(255,255,255,0.1),0 0 35px rgba(200,180,255,0.08); }
+body.light-mode .project-card:hover { box-shadow:0 8px 32px rgba(0,0,0,0.12); }
+.project-card.hidden-card { display:none; }
+.project-card-img { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; opacity:0.85; transition:opacity var(--transition); }
+.project-card:hover .project-card-img { opacity:1; }
+.project-card-body { padding:20px 22px; }
+.project-type { font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; display:block; }
+body.light-mode .project-type { color: #6d28d9; }
+.project-title { font-family:var(--serif); font-size:1.2rem; font-weight:400; margin-bottom:6px; color:var(--text); }
+body.light-mode .project-title { color: #1a1025; }
+.project-year { font-size:0.78rem; color:var(--text-muted); margin-bottom:10px; }
+body.light-mode .project-year { color: #3d2d50; }
+.project-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+.project-tag { font-size:0.72rem; padding:3px 10px; background:var(--surface2); border:1px solid var(--border); border-radius:100px; color:var(--text-muted); }
+body.light-mode .project-tag { background: rgba(109,40,217,0.08); border-color: rgba(109,40,217,0.2); color: #3d2d50; }
+.project-img-wrap { position:relative; overflow:hidden; }
+
+/* View button on image hover */
+.view-btn {
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  padding:10px 22px; border-radius:30px; background:rgba(0,0,0,0.5);
+  border:1px solid rgba(255,255,255,0.5); color:white; font-size:0.8rem;
+  letter-spacing:1px; cursor:pointer; opacity:0; transition:0.3s;
+  backdrop-filter:blur(6px); z-index:2;
+  font-family: var(--sans);
+}
+.project-img-wrap:hover .view-btn { opacity:1; }
+.project-img-wrap:hover img { filter:brightness(0.6); }
+
+/* ── SEE MORE ── */
+.see-more-wrap { text-align:center; margin-top:28px; }
+.btn-see-more {
+  display:inline-flex; align-items:center; gap:8px; padding:12px 32px;
+  background:transparent; border:1px solid var(--border-hover);
+  color:var(--text-dim); border-radius:100px; font-size:0.8rem;
+  letter-spacing:0.08em; cursor:pointer; transition:all 0.3s ease; font-family:var(--sans);
+}
+body.light-mode .btn-see-more { color:#4a3960; border-color:rgba(0,0,0,0.25); }
+.btn-see-more:hover { background:var(--surface2); border-color:rgba(224,195,252,0.4); color:var(--text); transform:translateY(-2px); }
+body.light-mode .btn-see-more:hover { color:#1a1025; background:rgba(109,40,217,0.08); }
+.btn-see-more i { transition:transform 0.3s ease; font-size:12px; }
+.btn-see-more.expanded i { transform:rotate(180deg); }
+
+/* ── CERTIFICATES ── */
+.cert-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.cert-card {
+  background:var(--card-bg); border:1px solid var(--card-border);
+  border-radius:var(--radius-lg); overflow:hidden; text-decoration:none;
+  color:var(--text); backdrop-filter:blur(10px); transition:all var(--transition);
+  position:relative;
+}
+body.light-mode .cert-card { background: rgba(255,255,255,0.88); border-color: rgba(0,0,0,0.18); box-shadow:0 2px 10px rgba(0,0,0,0.06); }
+.cert-card::before {
+  content:''; position:absolute; inset:0; z-index:1; pointer-events:none; opacity:0;
+  background:radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(224,195,252,0.1), transparent 60%);
+  transition:opacity 0.3s;
+}
+.cert-card:hover::before { opacity:1; }
+.cert-card.hidden-card { display:none; }
+.cert-card:hover { border-color:var(--card-hover-border); transform:translateY(-5px); box-shadow:0 0 15px rgba(255,255,255,0.1),0 0 30px rgba(200,180,255,0.1); }
+body.light-mode .cert-card:hover { box-shadow:0 8px 28px rgba(0,0,0,0.12); }
+.cert-card img { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; opacity:0.8; transition:opacity var(--transition); }
+.cert-card:hover img { opacity:1; }
+.cert-card-label { padding:14px 16px; font-size:0.82rem; color:var(--text-dim); line-height:1.4; }
+body.light-mode .cert-card-label { color: #4a3960; }
+
+/* ── STATS ROW ── */
+.stats-row { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:80px; }
+.stat-card {
+  background:var(--card-bg); border:1px solid var(--card-border);
+  border-radius:var(--radius-lg); padding:36px 28px; text-align:center;
+  backdrop-filter:blur(12px); transition:all var(--transition);
+  position:relative; overflow:hidden;
+}
+body.light-mode .stat-card { background: rgba(255,255,255,0.88); border-color: rgba(0,0,0,0.18); box-shadow:0 2px 12px rgba(0,0,0,0.07); }
+.stat-card::before {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(circle at 50% 0%, rgba(224,195,252,0.08), transparent 60%);
+}
+.stat-card:hover { transform:scale(1.04) translateY(-4px); border-color:var(--card-hover-border); box-shadow:0 0 30px rgba(200,180,255,0.15); }
+body.light-mode .stat-card:hover { box-shadow:0 8px 32px rgba(109,40,217,0.15); }
+.stat-icon { font-size:2rem; margin-bottom:12px; display:block; background:var(--grad-text); background-size:200% 200%; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; animation:gradShift 4s ease infinite; }
+.stat-number { font-family:var(--serif); font-size:3.5rem; font-weight:300; line-height:1; margin-bottom:8px; display:block; }
+.stat-label { font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); }
+body.light-mode .stat-label { color: #3d2d50; }
+.stat-sub { font-size:0.72rem; color:var(--text-dim); margin-top:4px; }
+body.light-mode .stat-sub { color: #4a3960; }
+
+/* ── CONTACT ── */
+#contact { background:rgba(0,0,0,0.15); backdrop-filter:blur(20px); }
+body.light-mode #contact { background:rgba(109,40,217,0.03); border-top:1px solid rgba(0,0,0,0.08); }
+.contact-inner { padding:100px 6%; max-width:1000px; margin:0 auto; }
+.contact-top { display:grid; grid-template-columns:1fr 1.2fr; gap:80px; align-items:start; margin-bottom:60px; }
+.contact-tagline { font-size:0.92rem; color:var(--text-dim); font-weight:300; line-height:1.7; max-width:360px; margin-top:12px; }
+body.light-mode .contact-tagline { color: #4a3960; }
+.contact-links { display:flex; flex-direction:column; gap:12px; }
+.contact-link {
+  display:flex; align-items:center; gap:16px; padding:16px 20px;
+  background:var(--card-bg); border:1px solid var(--card-border);
+  border-radius:var(--radius); text-decoration:none; color:var(--text);
+  backdrop-filter:blur(10px); transition:all var(--transition);
+}
+body.light-mode .contact-link { background:rgba(255,255,255,0.88); border-color:rgba(0,0,0,0.18); color:#1a1025; }
+.contact-link:hover { border-color:rgba(224,195,252,0.4); transform:translateX(6px); box-shadow:0 0 20px rgba(200,180,255,0.1); }
+body.light-mode .contact-link:hover { border-color:rgba(109,40,217,0.35); box-shadow:0 4px 20px rgba(109,40,217,0.12); }
+.contact-link-icon { width:36px; height:36px; display:flex; align-items:center; justify-content:center; background:var(--accent-glow); border-radius:8px; color:var(--accent); font-size:15px; flex-shrink:0; }
+body.light-mode .contact-link-icon { color:#6d28d9; background:rgba(109,40,217,0.1); }
+.contact-link-label { font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:2px; }
+body.light-mode .contact-link-label { color:#3d2d50; }
+.contact-link-value { font-size:0.85rem; color:var(--text-dim); }
+body.light-mode .contact-link-value { color:#4a3960; }
+
+/* ── CONTACT FORM ── */
+.contact-form-wrap {
+  background:var(--card-bg); border:1px solid var(--card-border);
+  border-radius:var(--radius-lg); padding:36px;
+  backdrop-filter:blur(16px); position:relative; overflow:hidden;
+}
+body.light-mode .contact-form-wrap { background:rgba(255,255,255,0.9); border-color:rgba(0,0,0,0.18); }
+.contact-form-wrap::before {
+  content:''; position:absolute; top:-40px; right:-40px;
+  width:200px; height:200px; border-radius:50%;
+  background:radial-gradient(circle, rgba(224,195,252,0.08), transparent 60%);
+  pointer-events:none;
+}
+.form-title { font-family:var(--serif); font-size:1.5rem; font-weight:300; margin-bottom:4px; color:var(--text); }
+body.light-mode .form-title { color:#1a1025; }
+.form-subtitle { font-size:0.8rem; color:var(--text-muted); margin-bottom:28px; }
+body.light-mode .form-subtitle { color:#3d2d50; }
+.form-group { margin-bottom:18px; }
+.form-label { font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); display:block; margin-bottom:8px; }
+body.light-mode .form-label { color:#3d2d50; }
+.form-input, .form-textarea {
+  width:100%; padding:12px 16px; background:var(--input-bg);
+  border:1px solid var(--input-border); border-radius:var(--radius);
+  color:var(--input-text); font-family:var(--sans); font-size:0.88rem;
+  transition:all 0.3s; outline:none;
+}
+body.light-mode .form-input, body.light-mode .form-textarea { color:#1a1025; background:rgba(255,255,255,0.95); border-color:rgba(0,0,0,0.22); }
+.form-input:focus, .form-textarea:focus { border-color:rgba(224,195,252,0.5); box-shadow:0 0 0 3px rgba(224,195,252,0.08); }
+body.light-mode .form-input:focus, body.light-mode .form-textarea:focus { border-color:rgba(109,40,217,0.5); box-shadow:0 0 0 3px rgba(109,40,217,0.1); }
+.form-textarea { resize:vertical; min-height:110px; line-height:1.6; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.btn-send {
+  display:inline-flex; align-items:center; gap:10px; padding:13px 28px;
+  background:linear-gradient(135deg,#24014a,#320128);
+  color:white; border-radius:100px; font-size:0.82rem; font-weight:500;
+  letter-spacing:0.04em; border:none; cursor:pointer;
+  box-shadow:0 0 16px rgba(247,0,255,0.3);
+  transition:all var(--transition); width:100%; justify-content:center;
+  font-family:var(--sans);
+}
+body.light-mode .btn-send { background:linear-gradient(135deg,#6d28d9,#b5509c); box-shadow:0 4px 16px rgba(109,40,217,0.3); color:white; }
+.btn-send:hover { transform:translateY(-2px) scale(1.02); box-shadow:0 0 25px rgba(224,195,252,0.4); }
+.btn-send:disabled { opacity:0.6; cursor:not-allowed; transform:none; }
+.form-status { margin-top:12px; font-size:0.82rem; text-align:center; min-height:20px; }
+.form-status.success { color:#6ee7b7; }
+body.light-mode .form-status.success { color:#059669; }
+.form-status.error { color:#f87171; }
+body.light-mode .form-status.error { color:#dc2626; }
+
+/* ── FOOTER ── */
+footer { border-top:1px solid var(--divider-color); padding:30px 6%; display:flex; justify-content:space-between; align-items:center; position:relative; z-index:2; background:var(--footer-bg); }
+.footer-copy { font-size:0.8rem; color:var(--text-muted); }
+body.light-mode .footer-copy { color:#3d2d50; }
+.footer-brand { font-family:var(--serif); font-size:1.0rem; color:var(--text-muted); font-style:italic; }
+body.light-mode .footer-brand { color:#3d2d50; }
+
+/* ══════════════════════════════════════════
+   MODAL — Project & Experience Detail
+   PERBAIKAN: tidak menutup saat klik luar,
+   tombol X lebih jelas, backdrop hanya overlay
+══════════════════════════════════════════ */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.modal-overlay.open { display: flex; }
+
+.modal-box {
+  background: var(--modal-bg);
+  border: 1px solid var(--modal-border);
+  border-radius: var(--radius-lg);
+  padding: 40px 36px 36px;
+  width: 90%;
+  max-width: 620px;
+  max-height: 88vh;
+  overflow-y: auto;
+  animation: scaleIn 0.3s ease;
+  position: relative;
+  box-shadow: 0 25px 80px rgba(0,0,0,0.6);
+  /* Klik pada modal-box tidak menutup overlay */
+}
+body.light-mode .modal-box { background: rgba(255,255,255,0.99); border-color: rgba(0,0,0,0.15); box-shadow: 0 25px 80px rgba(0,0,0,0.2); }
+
+/* Tombol X — lebih jelas, kontras tinggi */
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid rgba(255,255,255,0.35);
+  border-radius: 50%;
+  cursor: pointer;
+  color: rgba(255,255,255,0.9);
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1;
+  transition: all 0.25s ease;
+  background: rgba(255,255,255,0.08);
+  z-index: 10;
+}
+body.light-mode .modal-close { border-color: rgba(0,0,0,0.3); color: #1a1025; background: rgba(0,0,0,0.06); }
+.modal-close:hover {
+  background: rgba(224,195,252,0.2);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: scale(1.1);
+}
+body.light-mode .modal-close:hover { background: rgba(109,40,217,0.1); border-color: #6d28d9; color: #6d28d9; }
+
+.modal-type { font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; display:block; }
+body.light-mode .modal-type { color:#6d28d9; }
+.modal-title { font-family:var(--serif); font-size:1.7rem; font-weight:300; margin-bottom:6px; color:var(--text); }
+body.light-mode .modal-title { color:#1a1025; }
+.modal-sub { font-size:0.82rem; color:var(--text-muted); margin-bottom:20px; }
+body.light-mode .modal-sub { color:#3d2d50; }
+.modal-tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px; }
+.modal-tag { font-size:0.72rem; padding:4px 12px; border:1px solid var(--border-hover); border-radius:100px; color:var(--text-dim); }
+body.light-mode .modal-tag { border-color:rgba(0,0,0,0.2); color:#4a3960; background:rgba(109,40,217,0.06); }
+.modal-desc { font-size:0.88rem; color:var(--text-dim); line-height:1.8; margin-bottom:18px; font-weight:300; }
+body.light-mode .modal-desc { color:#4a3960; }
+.modal-highlights { display:flex; flex-direction:column; gap:8px; }
+.modal-highlight { display:flex; align-items:center; gap:10px; font-size:0.82rem; color:var(--text-dim); }
+body.light-mode .modal-highlight { color:#4a3960; }
+.modal-highlight::before { content:''; width:5px; height:5px; border-radius:50%; background:var(--accent); flex-shrink:0; }
+.modal-list { margin-top:10px; padding-left:0; list-style:none; display:flex; flex-direction:column; gap:6px; }
+.modal-list li { display:flex; align-items:flex-start; gap:10px; font-size:0.82rem; color:var(--text-dim); line-height:1.6; }
+body.light-mode .modal-list li { color:#4a3960; }
+.modal-list li::before { content:''; width:5px; height:5px; border-radius:50%; background:var(--accent); flex-shrink:0; margin-top:6px; }
+
+/* ── VIEW PHOTO BUTTON (in modal) ── */
+.btn-view-photo {
+  display:inline-flex; align-items:center; gap:8px;
+  margin-top:20px; padding:10px 22px;
+  background:transparent; border:1px solid var(--border-hover);
+  color:var(--text-dim); border-radius:100px;
+  font-size:0.78rem; letter-spacing:0.08em; cursor:pointer;
+  transition:all 0.3s ease; font-family:var(--sans);
+}
+body.light-mode .btn-view-photo { border-color:rgba(0,0,0,0.25); color:#4a3960; }
+.btn-view-photo:hover { background:var(--surface2); border-color:rgba(224,195,252,0.5); color:var(--text); }
+body.light-mode .btn-view-photo:hover { background:rgba(109,40,217,0.08); border-color:rgba(109,40,217,0.35); color:#1a1025; }
+
+.modal-photo-gallery {
+  display: none;
+  margin-top: 16px;
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px;
+  animation: fadeIn 0.4s ease;
+}
+.modal-photo-gallery.open { display: grid; }
+.modal-photo-item {
+  aspect-ratio: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+  cursor: pointer;
+  position: relative;
+}
+body.light-mode .modal-photo-item { border-color:rgba(0,0,0,0.14); }
+.modal-photo-item img { width:100%; height:100%; object-fit:cover; transition:all 0.3s; opacity:0.85; display:block; }
+.modal-photo-item:hover img { opacity:1; transform:scale(1.05); }
+.modal-photo-item::after {
+  content:'\f00e'; font-family:'Font Awesome 6 Free'; font-weight:900;
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  font-size:16px; color:white; opacity:0; background:rgba(0,0,0,0.3);
+  transition:opacity 0.3s; border-radius:10px;
+}
+.modal-photo-item:hover::after { opacity:1; }
+.btn-hide-photo {
+  display: block; text-align:center; width:100%; margin-top:12px;
+  padding:8px; font-size:0.75rem; letter-spacing:0.08em;
+  color:var(--text-muted); cursor:pointer; background:none; border:none;
+  font-family:var(--sans); transition:color 0.3s;
+}
+body.light-mode .btn-hide-photo { color:#3d2d50; }
+.btn-hide-photo:hover { color:var(--accent); }
+
+/* ══════════════════════════════════════════
+   IMAGE VIEWER — fullscreen
+   PERBAIKAN: tidak menutup saat klik luar,
+   tombol X lebih jelas
+══════════════════════════════════════════ */
+.img-viewer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.94);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+}
+.img-viewer.open { display: flex; }
+
+/* Tombol X image viewer — kontras tinggi */
+.img-viewer-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 300;
+  color: #ffffff;
+  cursor: pointer;
+  background: rgba(255,255,255,0.12);
+  border: 1.5px solid rgba(255,255,255,0.35);
+  border-radius: 50%;
+  transition: all 0.25s ease;
+  z-index: 10;
+  line-height: 1;
+}
+.img-viewer-close:hover {
+  background: rgba(255,255,255,0.25);
+  border-color: #fff;
+  transform: scale(1.1);
+}
+
+.img-viewer img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  object-fit: contain;
+  display: block;
+  /* Klik pada gambar tidak menutup viewer */
+}
+
+/* ── ANIMATIONS ── */
+.fade-up { opacity:0; transform:translateY(28px); transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+.fade-up.visible { opacity:1; transform:translateY(0); }
+.fade-left { opacity:0; transform:translateX(-28px); transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+.fade-left.visible { opacity:1; transform:translateX(0); }
+.fade-right { opacity:0; transform:translateX(28px); transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+.fade-right.visible { opacity:1; transform:translateX(0); }
+.scale-in { opacity:0; transform:scale(0.93); transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+.scale-in.visible { opacity:1; transform:scale(1); }
+
+@keyframes fadeIn { from{opacity:0;}to{opacity:1;} }
+@keyframes scaleIn { from{transform:scale(0.95);opacity:0;}to{transform:scale(1);opacity:1;} }
+
+/* ══════════════════════════════════════════
+   HAMBURGER NAV
+══════════════════════════════════════════ */
+.nav-toggle { display:none; }
+.nav-right { display:flex; align-items:center; gap:8px; }
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: flex !important;
+    position: fixed;
+    top: 61px; left: 0; right: 0;
+    background: rgba(8,4,20,0.97);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    padding: 0; gap: 0; list-style: none;
+    max-height: 0; overflow: hidden;
+    opacity: 0; transform: translateY(-8px);
+    transition: max-height 0.42s cubic-bezier(0.4,0,0.2,1),
+                opacity 0.32s cubic-bezier(0.4,0,0.2,1),
+                transform 0.32s cubic-bezier(0.4,0,0.2,1);
+    pointer-events: none;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 99;
+  }
+  body.light-mode .nav-links { background: rgba(240,234,255,0.97); }
+  .nav-links.open { max-height: 400px; opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .nav-links li { width:100%; border-bottom:1px solid var(--border); }
+  .nav-links li:last-child { border-bottom: none; }
+  .nav-links a { display:block; width:100%; padding:18px 28px; font-size:0.82rem; letter-spacing:0.14em; color:var(--text-muted); text-decoration:none; transition:background 0.2s ease, color 0.2s ease, padding-left 0.2s ease; }
+  body.light-mode .nav-links a { color:#3d2d50; }
+  .nav-links a:hover, .nav-links a.active { color:var(--text); background:rgba(255,255,255,0.04); padding-left:36px; }
+  body.light-mode .nav-links a:hover, body.light-mode .nav-links a.active { color:#1a1025; background:rgba(109,40,217,0.05); }
+  .nav-links a::after { display:none; }
+  .nav-toggle { display:flex; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
+  .nav-toggle span { display:block; width:22px; height:1.5px; background:var(--text-muted); transition:var(--transition); }
+  .nav-toggle.open span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
+  .nav-toggle.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .container { padding: 0 28px; }
+  section { padding-left: 28px; padding-right: 28px; }
+  .section-wrap { padding: 80px 0; }
+  .hero-inner { grid-template-columns:1fr; gap:40px; padding:80px 0 60px; }
+  .hero-photo-wrap { order:-1; display:flex; justify-content:center; }
+  .hero-photo-frame { width:220px; height:220px; }
+  .hero-photo { width:200px; height:200px; }
+  .about-grid { grid-template-columns:1fr; }
+  .about-photo { max-width:180px; }
+  .skill-icons { grid-template-columns:repeat(4,1fr); }
+  .projects-grid { grid-template-columns:repeat(2,1fr); }
+  .cert-grid { grid-template-columns:repeat(2,1fr); }
+  .stats-row { grid-template-columns:repeat(3,1fr); gap:16px; }
+  .contact-top { grid-template-columns:1fr; gap:40px; }
+  .form-row { grid-template-columns:1fr; }
+  hr.divider { margin: 0 28px 80px; }
+  .contact-inner { padding: 80px 28px; }
+  nav { padding: 18px 28px; }
+  footer { padding: 28px; }
+}
+
+@media (max-width: 640px) {
+  .container { padding: 0 20px; }
+  section { padding-left: 20px; padding-right: 20px; }
+  .section-wrap { padding: 60px 0; }
+  nav { padding: 16px 20px; }
+  hr.divider { margin: 0 20px 60px; }
+  .skill-icons { grid-template-columns: repeat(2,1fr); }
+  .projects-grid { grid-template-columns: 1fr; }
+  .cert-grid { grid-template-columns: 1fr; }
+  .stats-row { grid-template-columns: 1fr; gap:14px; }
+  footer { flex-direction:column; gap:10px; text-align:center; padding: 24px 20px; }
+  .hero-name { font-size: 2.2rem; }
+  .contact-inner { padding: 60px 20px; }
+  .contact-form-wrap { padding: 22px 18px; }
+  .hero-ctas { gap:12px; }
+  .hero-ctas .btn-primary, .hero-ctas .btn-outline { padding:10px 18px; font-size:0.75rem; }
+  .modal-photo-gallery { grid-template-columns: repeat(2,1fr); }
+  .modal-box { padding: 36px 20px 24px; }
+  #typing-text { font-size: 1.6rem; }
+  .cursor { font-size: 1.6rem; }
+}
+
+@media (max-width: 390px) {
+  .container { padding: 0 16px; }
+  nav { padding: 14px 16px; }
+  hr.divider { margin: 0 16px 60px; }
+  .contact-inner { padding: 50px 16px; }
+  footer { padding: 20px 16px; }
+  .hero-name { font-size: 1.9rem; }
+  .contact-form-wrap { padding: 18px 14px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ── CURSOR GLOW ── -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- ── BACKGROUND CANVAS ── -->
+<canvas id="bg-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:1;"></canvas>
+
+<!-- ══════════════════════════════════════════
+     OPENING OVERLAY
+══════════════════════════════════════════ -->
+<div id="opening-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#0d1e3f,#000000,#24001d);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:999999;overflow:hidden;transition:all 1.2s cubic-bezier(0.4,0,0.2,1);font-family:'Poppins','DM Sans',sans-serif;padding:0 24px;box-sizing:border-box;">
+  <canvas id="open-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
+  <p id="op-g1" style="font-size:clamp(9px,2.5vw,11px);letter-spacing:clamp(2px,1vw,5px);color:rgba(255,255,255,0.4);text-transform:uppercase;font-weight:300;opacity:0;transform:translateY(16px);transition:all 0.7s ease;margin-bottom:12px;position:relative;z-index:1;white-space:nowrap;">Welcome to</p>
+  <h1 id="op-g2" style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,6vw,3.8rem);font-weight:400;color:#fff;text-align:center;letter-spacing:clamp(1px,0.5vw,2px);opacity:0;transform:translateY(20px);transition:all 0.8s ease 0.25s;margin:0;position:relative;z-index:1;line-height:1.2;max-width:100%;">
+    Aini <em class="grad-text">Intan</em> Saylendra
+  </h1>
+  <div id="op-line" style="width:0;height:1px;background:linear-gradient(90deg,transparent,rgba(200,150,255,0.6),transparent);margin:22px auto;transition:width 1.1s ease 0.4s;position:relative;z-index:1;max-width:80%;"></div>
+  <p id="op-g3" style="font-size:clamp(9px,2.5vw,11px);letter-spacing:clamp(2px,1vw,4px);color:rgba(255,255,255,0.3);text-transform:uppercase;font-weight:300;opacity:0;transform:translateY(14px);transition:all 0.7s ease 0.5s;position:relative;z-index:1;white-space:nowrap;">Portofolio</p>
+  <div id="op-g4" style="margin-top:36px;opacity:0;transform:translateY(10px);transition:all 0.7s ease 0.85s;position:relative;z-index:1;">
+    <button onclick="closeOpening()" class="btn-outline">Masuk &rarr;</button>
+  </div>
+</div>
+
+<style>
+  #main-content {
+    transition: transform 1.5s cubic-bezier(0.2,0.8,0.2,1), opacity 1.5s ease;
+    opacity: 0;
+    transform: scale(1.15);
+    pointer-events: none;
+  }
+  .content-visible {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+    pointer-events: auto !important;
+  }
+</style>
+
+<!-- ── NAV ── -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">
+    <img src="img/logo.png" alt="logo" class="logo-img">
+    Aini <span class="grad-text">Intan</span> Saylendra
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeToggle" title="Toggle mode siang/malam">
+      <span class="toggle-icon icon-moon">🌙</span>
+      <span class="toggle-icon icon-sun">☀️</span>
+    </button>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════
+     MAIN CONTENT
+══════════════════════════════════════════ -->
+<div id="main-content">
+
+<!-- ══════════════════════════════════════════
+     SECTION: HOME
+══════════════════════════════════════════ -->
+<section id="home">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text fade-up">
+        <span style="font-size:0.85rem;color:var(--text-dim);display:block;margin-bottom:8px;">Hello, My name</span>
+        <h1 class="hero-name">Aini <span class="grad-text" style="font-style:italic;">Intan</span><br>Saylendra</h1>
+        <p style="margin-bottom:8px;"><span id="typing-text"></span><span class="cursor">|</span></p>
+        <p style="font-size:0.95rem;color:var(--text-dim);font-weight:300;line-height:1.6;">Mahasiswa Pendidikan Teknologi Informasi Universitas Negeri Surabaya.</p>
+        <div class="hero-ctas">
+          <a href="img/CV AINI INTAN SAYLENDRA.pdf" class="btn-primary" download>
+            <i class="fa-solid fa-download" style="font-size:12px;"></i> Download CV
+          </a>
+          <a href="#projects" class="btn-outline">Lihat Proyek</a>
+        </div>
+        <div class="hero-socials">
+          <a href="https://instagram.com/ainiintans" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/aini-intan-saylendra-901907365" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://github.com/ainiintan1815" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="mailto:aini.intan1812@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap fade-right" style="transition-delay:0.15s">
+        <div class="hero-photo-frame">
+          <img src="profile1.jpg" alt="Aini Intan Saylendra" class="hero-photo">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════════════════════════
+     SECTION: ABOUT
+══════════════════════════════════════════ -->
+<section id="about">
+  <div class="container section-wrap">
+    <h2 class="section-title fade-up">About <span class="grad-text" style="font-style:italic;">me</span></h2>
+    <div class="about-grid">
+      <div class="about-sidebar fade-left">
+        <div class="about-photo-wrap">
+          <img src="img/me.jpg" alt="Aini Intan" class="about-photo">
+        </div>
+        <div class="about-quick">
+          <div class="about-quick-item">
+            <span class="about-quick-label"><b>Lokasi</b></span>
+            <span class="about-quick-value">Sidoarjo, Jawa Timur</span>
+          </div>
+          <div class="about-quick-item">
+            <span class="about-quick-label"><b>Status</b></span>
+            <span class="about-quick-value">Mahasiswa Aktif (Semester 4)</span>
+          </div>
+          <div class="about-quick-item">
+            <span class="about-quick-label"><b>Universitas</b></span>
+            <span class="about-quick-value">Universitas Negeri Surabaya</span>
+          </div>
+          <div class="about-quick-item">
+            <span class="about-quick-label"><b>Program Studi</b></span>
+            <span class="about-quick-value">Pendidikan Teknologi Informasi</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-main fade-right" style="transition-delay:0.1s">
+        <p>Halo! Saya <strong>Aini Intan Saylendra</strong>, biasa dipanggil Aini atau Ai. Saya mahasiswa semester 4 Pendidikan Teknologi Informasi di Universitas Negeri Surabaya (UNESA).</p>
+        <p>Saya merupakan lulusan SMK Multimedia tahun 2023, yang memiliki pengalaman dalam penggunaan tools desain grafis serta pernah bekerja di industri percetakan digital. Di lingkungan kampus, saya memiliki pengalaman pada organisasi <strong>HIMAPALA UNESA</strong> dan memiliki beberapa proyek akademik serta wirausaha. Selain itu, saya tertarik pada bidang teknik informatika dan desain grafis, serta berniat untuk mempelajari lebih dalam lagi.</p>
+        <h3 style="font-family:var(--serif);font-weight:400;font-size:1.1rem;margin-top:32px;margin-bottom:0;color:var(--text-dim);">Pendidikan</h3>
+        <div class="edu-list">
+          <div class="edu-item">
+            <span class="edu-year">2024 — saat ini</span>
+            <div>
+              <div class="edu-school">Universitas Negeri Surabaya</div>
+              <div class="edu-major">S1 Pendidikan Teknologi Informasi</div>
+            </div>
+          </div>
+          <div class="edu-item">
+            <span class="edu-year">2020 — 2023</span>
+            <div>
+              <div class="edu-school">SMK YPM 3 Taman</div>
+              <div class="edu-major">Jurusan Multimedia</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════════════════════════
+     SECTION: SKILLS
+══════════════════════════════════════════ -->
+<section id="skills">
+  <div class="container section-wrap">
+    <h2 class="section-title fade-up">Tools &amp; <span class="grad-text" style="font-style:italic;">Skills</span></h2>
+    <div class="skills-grid">
+      <div class="skill-card fade-up">
+        <span class="skill-card-label">Design Tools</span>
+        <div class="skill-icons">
+          <div class="skill-box"><img src="img/coreldraw.png" alt="CorelDRAW"><p>CorelDRAW</p></div>
+          <div class="skill-box"><img src="img/photoshop.png" alt="Photoshop"><p>Photoshop</p></div>
+          <div class="skill-box"><img src="img/canva.png" alt="Canva"><p>Canva</p></div>
+          <div class="skill-box"><img src="img/figma.png" alt="Figma"><p>Figma</p></div>
+          <div class="skill-box"><img src="img/drawio.png" alt="Drawio"><p>Draw io</p></div>
+        </div>
+      </div>
+      <div class="skill-card fade-up" style="transition-delay:0.05s">
+        <span class="skill-card-label">Development Tools</span>
+        <div class="skill-icons">
+          <div class="skill-box"><img src="img/vs code.png" alt="VSCode"><p>Visual Studio Code</p></div>
+          <div class="skill-box"><img src="img/visual studio.png" alt="VisualStudio"><p>Visual Studio</p></div>
+          <div class="skill-box"><img src="img/ssms.png" alt="SSMS"><p>SQL Server Management Studio</p></div>
+          <div class="skill-box"><img src="img/xampp.png" alt="XAMPP"><p>XAMPP</p></div>
+        </div>
+      </div>
+      <div class="skill-card fade-up" style="transition-delay:0.1s">
+        <span class="skill-card-label">Microsoft Office</span>
+        <div class="skill-icons">
+          <div class="skill-box"><img src="img/word.png" alt="Word"><p>Word</p></div>
+          <div class="skill-box"><img src="img/excel.png" alt="Excel"><p>Excel</p></div>
+          <div class="skill-box"><img src="img/powerpoint.png" alt="Powerpoint"><p>Powerpoint</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════════════════════════
+     SECTION: PROJECTS
+══════════════════════════════════════════ -->
+<section id="projects">
+  <div class="container section-wrap">
+    <h2 class="section-title fade-up" id="projects-title"><span class="grad-text" style="font-style:italic;">Projects</span></h2>
+    <div class="projects-grid" id="projectsGrid">
+
+      <div class="project-card fade-up" onclick="openModal('project', 0)">
+        <div class="project-img-wrap">
+          <img src="img/proyek1.png" class="project-card-img" alt="SiJimpit-App">
+          <button class="view-btn" onclick="event.stopPropagation(); openImg('img/proyek1.png')">View</button>
+        </div>
+        <div class="project-card-body">
+          <span class="project-type">Aplikasi Desktop</span>
+          <div class="project-title">SiJimpit-App</div>
+          <div class="project-year">2024 · Proyek Akademik</div>
+          <div class="project-tags"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
+        </div>
+      </div>
+
+      <div class="project-card fade-up" style="transition-delay:0.06s" onclick="openModal('project', 1)">
+        <div class="project-img-wrap">
+          <img src="img/proyek2.jpg" class="project-card-img" alt="CoffeGo">
+          <button class="view-btn" onclick="event.stopPropagation(); openImg('img/proyek2.jpg')">View</button>
+        </div>
+        <div class="project-card-body">
+          <span class="project-type">Aplikasi Mobile</span>
+          <div class="project-title">CoffeGo</div>
+          <div class="project-year">2025 · Proyek Akademik</div>
+          <div class="project-tags"><span class="project-tag">Android Studio</span><span class="project-tag">Firebase</span><span class="project-tag">Midtrans</span></div>
+        </div>
+      </div>
+
+      <div class="project-card fade-up" style="transition-delay:0.12s" onclick="openModal('project', 2)">
+        <div class="project-img-wrap">
+          <img src="img/proyek3.png" class="project-card-img" alt="Running Fest UNESA">
+          <button class="view-btn" onclick="event.stopPropagation(); openImg('img/proyek3.png')">View</button>
+        </div>
+        <div class="project-card-body">
+          <span class="project-type">Website</span>
+          <div class="project-title">Running Fest UNESA</div>
+          <div class="project-year">2025 · Proyek Akademik</div>
+          <div class="project-tags"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
+        </div>
+      </div>
+
+      <div class="project-card fade-up hidden-card" id="proj-extra-1" style="transition-delay:0.06s" onclick="openModal('project', 3)">
+        <div class="project-img-wrap">
+          <img src="img/proyek4.png" class="project-card-img" alt="SINTESA">
+          <button class="view-btn" onclick="event.stopPropagation(); openImg('img/proyek4.png')">View</button>
+        </div>
+        <div class="project-card-body">
+          <span class="project-type">Sistem Informasi</span>
+          <div class="project-title">SINTESA</div>
+          <div class="project-year">2025 · Proyek Akademik</div>
+          <div class="project-tags"><span class="project-tag">VB.NET</span><span class="project-tag">SQL Server</span></div>
+        </div>
+      </div>
+
+      <div class="project-card fade-up hidden-card" id="proj-extra-2" style="transition-delay:0.12s" onclick="openModal('project', 4)">
+        <div class="project-img-wrap">
+          <img src="img/proyek5.png" class="project-card-img" alt="Model 3D">
+          <button class="view-btn" onclick="event.stopPropagation(); openImg('img/proyek5.png')">View</button>
+        </div>
+        <div class="project-card-body">
+          <span class="project-type">Grafika Komputer</span>
+          <div class="project-title">Model 3D Gedung FBS UNESA</div>
+          <div class="project-year">2025 · Proyek Akademik</div>
+          <div class="project-tags"><span class="project-tag">C++</span><span class="project-tag">OpenGL</span><span class="project-tag">GLUT</span></div>
+        </div>
+      </div>
+
+      <div class="project-card fade-up hidden-card" id="proj-extra-3" style="transition-delay:0.18s" onclick="openModal('project', 5)">
+        <div class="project-img-wrap">
+          <img src="img/proyek6.jpg" class="project-card-img" alt="Jurnal">
+          <button class="view-btn" onclick="event.stopPropagation(); openImg('img/proyek6.jpg')">View</button>
+        </div>
+        <div class="project-card-body">
+          <span class="project-type">Publikasi Ilmiah</span>
+          <div class="project-title">Jurnal KRS &amp; KHS SINTESA</div>
+          <div class="project-year">2025 · Proyek Akademik</div>
+          <div class="project-tags"><span class="project-tag">Penelitian</span><span class="project-tag">JTTP</span></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="see-more-wrap">
+      <button class="btn-see-more" id="btnSeeMoreProjects" onclick="toggleSeeMore('projects')">
+        See More <i class="fa-solid fa-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════════════════════════
+     SECTION: EXPERIENCE & ORGANIZATION
+══════════════════════════════════════════ -->
+<section id="experience">
+  <div class="container section-wrap">
+    <h2 class="section-title fade-up" id="experience-title">Experience &amp; <span class="grad-text" style="font-style:italic;">Organization</span></h2>
+    <div class="projects-grid" id="expGrid">
+
+      <div class="project-card fade-up" onclick="openModal('exp', 0)">
+        <div class="project-img-wrap">
+          <img src="img/hmpl1.jpeg" class="project-card-img" alt="HIMAPALA">
+          <button class="view-btn" onclick="event.stopPropagation(); openImg('img/hmpl1.jpeg')">View</button>
+        </div>
+        <div class="project-card-body">
+          <span class="project-type">Organisasi</span>
+          <div class="project-title">HIMAPALA UNESA</div>
+          <div class="project-year">2025 — April 2026</div>
+          <p style="font-size:0.8rem;color:var(--text-muted);">Aktif dalam kegiatan pecinta alam, keorganisasian, pendidikan dasar, dan panjat tebing.</p>
+        </div>
+      </div>
+
+      <div class="project-card fade-up" onclick="openModal('exp', 1)">
+        <div class="project-img-wrap">
+          <img src="img/work1.jpeg" class="project-card-img" alt="Desain Grafis">
+          <button class="view-btn" onclick="event.stopPropagation(); openImg('img/work1.jpeg')">View</button>
+        </div>
+        <div class="project-card-body">
+          <span class="project-type">Pengalaman Kerja</span>
+          <div class="project-title">Desain Grafis &amp; Cetak</div>
+          <div class="project-year">2022 — 2023</div>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:10px;">Mendesain dan mencetak banner, stiker, dan kebutuhan promosi.</p>
+        </div>
+      </div>
+
+      <div class="project-card fade-up" onclick="openModal('exp', 2)">
+        <div class="project-img-wrap">
+          <img src="img/work2.jpeg" class="project-card-img" alt="Toko Baju">
+          <button class="view-btn" onclick="event.stopPropagation(); openImg('img/work2.jpeg')">View</button>
+        </div>
+        <div class="project-card-body">
+          <span class="project-type">Pengalaman Kerja</span>
+          <div class="project-title">Karyawan Toko Baju &amp; Cetak</div>
+          <div class="project-year">2018 — 2022</div>
+          <p style="font-size:0.8rem;color:var(--text-muted);">Melayani pelanggan dan membantu proses transaksi penjualan.</p>
+        </div>
+      </div>
+
+      <div class="project-card fade-up hidden-card" id="exp-extra-1" onclick="openModal('exp', 3)">
+        <div class="project-img-wrap">
+          <img src="img/work3.jpeg" class="project-card-img" alt="Kue Kering">
+          <button class="view-btn" onclick="event.stopPropagation(); openImg('img/work3.jpeg')">View</button>
+        </div>
+        <div class="project-card-body">
+          <span class="project-type">Wirausaha</span>
+          <div class="project-title">Usaha Kue Kering</div>
+          <div class="project-year">2022 — Sekarang</div>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:10px;">Produksi dan penjualan kue kering, termasuk branding dan pemasaran.</p>
+        </div>
+      </div>
+
+      <div class="project-card fade-up hidden-card" id="exp-extra-2" onclick="openModal('exp', 4)">
+        <div class="project-img-wrap">
+          <img src="img/work4.jpeg" class="project-card-img" alt="Gelang Manik">
+          <button class="view-btn" onclick="event.stopPropagation(); openImg('img/work4.jpeg')">View</button>
+        </div>
+        <div class="project-card-body">
+          <span class="project-type">Wirausaha</span>
+          <div class="project-title">Gelang Manik</div>
+          <div class="project-year">2023</div>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:10px;">Membuat dan menjual aksesori handmade secara online.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="see-more-wrap">
+      <button class="btn-see-more" id="btnSeeMoreExp" onclick="toggleSeeMore('exp')">
+        See More <i class="fa-solid fa-chevron-down"></i>
+      </button>
+    </div>
+
+    <!-- ── Certificates ── -->
+    <div style="margin-top:60px;">
+      <h2 class="section-title fade-up" id="cert-title"><span class="grad-text" style="font-style:italic;">Certificates</span></h2>
+      <div class="cert-grid" id="certGrid">
+        <a href="img/SERTIFIKAT WEBINAR CYBER SECURITY.pdf" target="_blank" class="cert-card">
+          <img src="img/SERTIFIKAT WEBINAR CYBER SECURITY.png" alt="Cyber Security">
+          <div class="cert-card-label">Webinar Cyber Security</div>
+        </a>
+        <a href="img/SERTIFIKAT JURNAL KRS KHS.pdf" target="_blank" class="cert-card">
+          <img src="img/SERTIFIKAT JURNAL KRS KHS.jpg" alt="Jurnal KRS KHS">
+          <div class="cert-card-label">Jurnal KRS-KHS</div>
+        </a>
+        <a href="img/SERTIFIKAT HKI.pdf" target="_blank" class="cert-card">
+          <img src="img/SERTIFIKAT HKI.jpg" alt="HKI">
+          <div class="cert-card-label">Sertifikat HKI</div>
+        </a>
+      </div>
+      <div class="see-more-wrap" style="margin-top:20px;">
+        <button class="btn-see-more" id="btnSeeMoreCert" onclick="toggleSeeMore('cert')">
+          See More <i class="fa-solid fa-chevron-down"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- ── Stats ── -->
+    <div class="stats-row" style="margin-top:80px;">
+      <div class="stat-card scale-in" style="transition-delay:0s">
+        <span class="stat-icon"><i class="fa-solid fa-folder-open"></i></span>
+        <span class="stat-number grad-text" data-target="6" data-count="0">0</span>
+        <div class="stat-label">Projects</div>
+        <div class="stat-sub">Akademik &amp; Digital</div>
+      </div>
+      <div class="stat-card scale-in" style="transition-delay:0.1s">
+        <span class="stat-icon"><i class="fa-solid fa-briefcase"></i></span>
+        <span class="stat-number grad-text" data-target="4" data-count="0">0</span>
+        <div class="stat-label">Pengalaman Kerja</div>
+        <div class="stat-sub">Kerja &amp; Wirausaha</div>
+      </div>
+      <div class="stat-card scale-in" style="transition-delay:0.2s">
+        <span class="stat-icon"><i class="fa-solid fa-certificate"></i></span>
+        <span class="stat-number grad-text" data-target="3" data-count="0">0</span>
+        <div class="stat-label">Sertifikat</div>
+        <div class="stat-sub">Webinar, HKI &amp; Akademik</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION: CONTACT
+══════════════════════════════════════════ -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-top">
+
+      <!-- Left: info & links -->
+      <div class="fade-left">
+        <h2 class="section-title" style="margin-bottom:12px;"><span class="grad-text" style="font-style:italic;">Contact</span></h2>
+        <p class="contact-tagline">Terbuka untuk diskusi, kolaborasi, peluang magang, maupun kesempatan baru. Silakan hubungi saya melalui media sosial.</p>
+        <div class="contact-links" style="margin-top:32px;">
+          <a href="mailto:aini.intan1812@gmail.com" class="contact-link">
+            <div class="contact-link-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <div class="contact-link-label">Email</div>
+              <div class="contact-link-value">aini.intan1812@gmail.com</div>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/aini-intan-saylendra-901907365" target="_blank" class="contact-link">
+            <div class="contact-link-icon"><i class="fa-brands fa-linkedin"></i></div>
+            <div>
+              <div class="contact-link-label">LinkedIn</div>
+              <div class="contact-link-value">Aini Intan Saylendra</div>
+            </div>
+          </a>
+          <a href="https://github.com/ainiintan1815" target="_blank" class="contact-link">
+            <div class="contact-link-icon"><i class="fa-brands fa-github"></i></div>
+            <div>
+              <div class="contact-link-label">GitHub</div>
+              <div class="contact-link-value">ainiintan1815</div>
+            </div>
+          </a>
+          <a href="https://instagram.com/ainiintans" target="_blank" class="contact-link">
+            <div class="contact-link-icon"><i class="fa-brands fa-instagram"></i></div>
+            <div>
+              <div class="contact-link-label">Instagram</div>
+              <div class="contact-link-value">@ainiintans</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: contact form -->
+      <div class="contact-form-wrap fade-right" style="transition-delay:0.1s">
+        <div class="form-title">Kirim Pesan</div>
+        <div class="form-subtitle">Isi form ini dan pesan akan terkirim langsung ke email saya.</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Nama *</label>
+            <input type="text" class="form-input" id="formName" placeholder="Nama kamu" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email *</label>
+            <input type="email" class="form-input" id="formEmail" placeholder="email@kamu.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Subjek *</label>
+          <input type="text" class="form-input" id="formSubject" placeholder="Topik pesan" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Pesan *</label>
+          <textarea class="form-textarea" id="formMessage" placeholder="Tulis pesanmu di sini..." required></textarea>
+        </div>
+        <button class="btn-send" id="btnSend" onclick="sendEmail()">
+          <i class="fa-solid fa-paper-plane" style="font-size:13px;"></i>
+          Kirim Pesan
+        </button>
+        <div class="form-status" id="formStatus"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <span class="footer-copy">© 2025 Aini Intan Saylendra</span>
+  <span class="footer-brand">Portofolio</span>
+</footer>
+
+</div><!-- /main-content -->
+
+<!-- ══════════════════════════════════════════
+     MODAL — Project & Experience Detail
+     Di luar #main-content agar z-index tidak terkubur
+══════════════════════════════════════════ -->
+<div class="modal-overlay" id="projectModal">
+  <div class="modal-box" id="modalBox">
+    <button class="modal-close" onclick="closeModal()" aria-label="Tutup">&times;</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     IMAGE VIEWER — fullscreen
+══════════════════════════════════════════ -->
+<div class="img-viewer" id="imgViewer">
+  <button class="img-viewer-close" onclick="closeImg()" aria-label="Tutup">&times;</button>
+  <img id="imgViewerSrc" src="" alt="Preview">
+</div>
+
+<!-- ══════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════ -->
+
+<!-- Opening overlay logic -->
+<script>
+if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+window.onload = function () { window.scrollTo(0, 0); };
+
+(function () {
+  const cvs = document.getElementById('open-canvas');
+  const cx = cvs.getContext('2d');
+  let W, H, stars = [];
+  const numStars = 2000;
+  const speed = 1.0;
+
+  function rs() { 
+  W = cvs.width = window.innerWidth; 
+  H = cvs.height = window.innerHeight; 
+}
+function createStar() { return { x:(Math.random()-0.5)*2000, y:(Math.random()-0.5)*2000, z:Math.random()*2000, r:Math.random()*0.5+0.3 }; }
+function initStars() { stars = []; for (let i = 0; i < numStars; i++) stars.push(createStar()); }
+
+function draw() {
+  if (!document.getElementById('opening-overlay') || 
+      document.getElementById('opening-overlay').style.display === 'none') {
+    requestAnimationFrame(draw);
+    return;
+  }
+  cx.clearRect(0, 0, W, H);
+  cx.save();
+  cx.translate(W / 2, H / 2);
+  const isLight = document.body.classList.contains('light-mode');
+  stars.forEach(s => {
+    s.z -= speed;
+    if (s.z <= 0) s.z = 2000;
+    const x = s.x / (s.z / 1000);
+    const y = s.y / (s.z / 1000);
+    const size = Math.min(s.r * (1000 / s.z), 3);
+    let alpha = 1 - (s.z / 2000);
+    if (alpha < 0) alpha = 0;
+    cx.beginPath();
+    cx.fillStyle = isLight ? `rgba(0,0,0,${alpha})` : `rgba(255,255,255,${alpha})`;
+    cx.arc(x, y, size, 0, Math.PI * 2);
+    cx.fill();
+  });
+  cx.restore();
+  requestAnimationFrame(draw);
+}
+
+const ov = document.getElementById('opening-overlay');
+const roObs = new ResizeObserver(() => { rs(); initStars(); });
+if (ov) roObs.observe(ov);
+
+  window.addEventListener('resize', () => { rs(); initStars(); });
+  rs(); initStars(); requestAnimationFrame(draw);
+
+  const show = (id, delay) => setTimeout(() => {
+    const el = document.getElementById(id);
+    if (el) { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }
+  }, delay);
+
+  show('op-g1', 400); show('op-g2', 700);
+  setTimeout(() => { const line = document.getElementById('op-line'); if (line) line.style.width = '160px'; }, 900);
+  show('op-g3', 1100); show('op-g4', 1600);
+})();
+
+function closeOpening() {
+  const ov = document.getElementById('opening-overlay');
+  const main = document.getElementById('main-content');
+  ov.style.filter = 'blur(40px)';
+  ov.style.opacity = '0';
+  ov.style.transform = 'scale(1.1)';
+  if (main) main.classList.add('content-visible');
+  setTimeout(() => { ov.style.display = 'none'; }, 1200);
+}
+</script>
+
+<!-- Background canvas -->
+<script>
+(function () {
+  const canvas = document.getElementById('bg-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, stars = [], shooters = [], lastShooter = 0;
+
+  function createStar() {
+    const r = Math.random() * 1.0 + 0.2;
+    return { x:Math.random()*W, y:Math.random()*H, r, alpha:Math.random()*0.5+0.15, speed:Math.random()*0.008+0.003, dir:Math.random()>0.5?1:-1, cross:Math.random()>0.6, hue:Math.random()>0.7?280+Math.random()*40:0 };
+  }
+  function initStars() { stars = []; for (let i = 0; i < 120; i++) stars.push(createStar()); }
+
+  function drawStar(s, isLight) {
+    ctx.save();
+    ctx.globalAlpha = isLight ? s.alpha * 0.35 : s.alpha;
+    const isColored = s.hue > 0;
+    const glowColor = isColored ? `hsla(${s.hue},90%,${isLight?40:75}%,${s.alpha*0.3})` : `rgba(${isLight?'100,60,180':'200,180,255'},${s.alpha*0.3})`;
+    const go = ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.r*5);
+    go.addColorStop(0, glowColor); go.addColorStop(1,'rgba(200,180,255,0)');
+    ctx.fillStyle = go; ctx.beginPath(); ctx.arc(s.x,s.y,s.r*8,0,Math.PI*2); ctx.fill();
+    const coreColor = isColored ? `hsla(${s.hue},100%,${isLight?50:90}%,${s.alpha*0.9})` : `rgba(${isLight?'80,40,160':'255,245,255'},${s.alpha*0.9})`;
+    const gm = ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.r*3);
+    gm.addColorStop(0, coreColor); gm.addColorStop(1,'rgba(200,180,255,0)');
+    ctx.fillStyle = gm; ctx.beginPath(); ctx.arc(s.x,s.y,s.r*3,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle = isLight ? 'rgba(80,40,160,0.8)' : '#ffffff';
+    ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2); ctx.fill();
+    if (s.cross) {
+      const len = s.r * 6;
+      ctx.strokeStyle = isLight ? `rgba(80,40,160,${s.alpha*0.5})` : `rgba(255,255,255,${s.alpha*0.5})`;
+      ctx.lineWidth = s.r * 0.45; ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.moveTo(s.x-len,s.y); ctx.lineTo(s.x+len,s.y); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(s.x,s.y-len); ctx.lineTo(s.x,s.y+len); ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  function spawnShooter() {
+    if (shooters.length >= 2) return;
+    const goRight = Math.random() > 0.5;
+    shooters.push({ x:goRight?Math.random()*W*0.3:W*0.7+Math.random()*W*0.3, y:Math.random()*H*0.45, len:Math.random()*100+70, speed:Math.random()*6+4, alpha:1, angle:goRight?Math.PI/5:Math.PI-Math.PI/5 });
+  }
+
+  function draw(ts) {
+    const isLight = document.body.classList.contains('light-mode');
+    ctx.clearRect(0, 0, W, H);
+    stars.forEach(s => {
+      s.alpha += s.speed * s.dir;
+      if (s.alpha >= 0.7) { s.alpha = 0.7; s.dir = -1; }
+      if (s.alpha <= 0.05) { s.alpha = 0.05; s.dir = 1; }
+      drawStar(s, isLight);
+    });
+    if (ts - lastShooter > 3000 + Math.random() * 2500) { spawnShooter(); lastShooter = ts; }
+    shooters = shooters.filter(s => s.alpha > 0.02);
+    shooters.forEach(s => {
+      const ex = s.x + Math.cos(s.angle) * s.len, ey = s.y + Math.sin(s.angle) * s.len;
+      const grad = ctx.createLinearGradient(s.x,s.y,ex,ey);
+      const sc = isLight ? `rgba(109,40,217,${s.alpha})` : `rgba(255,255,255,${s.alpha})`;
+      grad.addColorStop(0, sc); grad.addColorStop(1,'rgba(200,180,255,0)');
+      ctx.save(); ctx.strokeStyle = grad; ctx.lineWidth = 1.5; ctx.globalAlpha = s.alpha;
+      ctx.beginPath(); ctx.moveTo(s.x,s.y); ctx.lineTo(ex,ey); ctx.stroke(); ctx.restore();
+      s.x += Math.cos(s.angle) * s.speed; s.y += Math.sin(s.angle) * s.speed; s.alpha -= 0.014;
+    });
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', () => { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; initStars(); });
+  W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight;
+  initStars(); requestAnimationFrame(draw);
+})();
+</script>
+
+<!-- UI interactions -->
+<script>
+/* ── CURSOR GLOW ── */
+document.addEventListener('mousemove', e => {
+  const el = document.getElementById('cursorGlow');
+  el.style.left = e.clientX + 'px';
+  el.style.top = e.clientY + 'px';
+});
+
+/* ── THEME TOGGLE (DEFAULT ALWAYS DARK) ── */
+const themeToggle = document.getElementById('themeToggle');
+
+// Paksa hapus mode terang setiap kali halaman di-refresh
+document.body.classList.remove('light-mode');
+localStorage.removeItem('theme'); 
+
+themeToggle.addEventListener('click', () => {
+  // Toggle tetap berfungsi agar user bisa pindah ke mode terang saat sesi aktif
+  document.body.classList.toggle('light-mode');
+});
+
+/* ── CARD CURSOR EFFECT ── */
+function addCursorEffect(selector) {
+  document.querySelectorAll(selector).forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width * 100).toFixed(1) + '%');
+      card.style.setProperty('--my', ((e.clientY - rect.top) / rect.height * 100).toFixed(1) + '%');
+    });
+  });
+}
+addCursorEffect('.project-card');
+addCursorEffect('.cert-card');
+addCursorEffect('.skill-card');
+addCursorEffect('.skill-box');
+addCursorEffect('.stat-card');
+
+/* ── NAV HAMBURGER ── */
+const toggleBtn = document.getElementById('navToggle');
+const navLinksEl = document.getElementById('navLinks');
+
+toggleBtn.addEventListener('click', () => {
+  const isOpen = navLinksEl.classList.contains('open');
+  navLinksEl.classList.toggle('open', !isOpen);
+  toggleBtn.classList.toggle('open', !isOpen);
+});
+navLinksEl.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => { navLinksEl.classList.remove('open'); toggleBtn.classList.remove('open'); });
+});
+document.addEventListener('click', e => {
+  if (!e.target.closest('nav')) { navLinksEl.classList.remove('open'); toggleBtn.classList.remove('open'); }
+});
+
+/* ── ACTIVE NAV ── */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(sec => { if (window.scrollY >= sec.offsetTop - 140) current = sec.id; });
+  navLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+}, { passive: true });
+
+/* ── INTERSECTION OBSERVER (fade animations & counter) ── */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 60);
+      if (e.target.classList.contains('stat-card')) {
+        const numEl = e.target.querySelector('.stat-number[data-target]');
+        if (numEl && !numEl.dataset.animated) {
+          numEl.dataset.animated = '1';
+          animateCounter(numEl, parseInt(numEl.dataset.target));
+        }
+      }
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-up,.fade-left,.fade-right,.scale-in').forEach(el => observer.observe(el));
+
+/* ── COUNTER ANIMATION ── */
+function animateCounter(el, target) {
+  const duration = 1200;
+  const startTime = performance.now();
+  function step(now) {
+    const progress = Math.min((now - startTime) / duration, 1);
+    const eased = 1 - (1 - progress) * (1 - progress);
+    el.textContent = Math.round(eased * target);
+    if (progress < 1) requestAnimationFrame(step);
+    else el.textContent = target;
+  }
+  requestAnimationFrame(step);
+}
+
+/* ── SEE MORE TOGGLE ── */
+function toggleSeeMore(section) {
+  const map = {
+    projects: { ids:['proj-extra-1','proj-extra-2','proj-extra-3'], btn:'btnSeeMoreProjects', title:'projects-title' },
+    exp:      { ids:['exp-extra-1','exp-extra-2'],                   btn:'btnSeeMoreExp',     title:'experience-title' },
+    cert:     { ids:['cert-extra-1','cert-extra-2','cert-extra-3','cert-extra-4','cert-extra-5'], btn:'btnSeeMoreCert', title:'cert-title' }
+  };
+  const cfg = map[section];
+  if (!cfg) return;
+  const btn = document.getElementById(cfg.btn);
+  const isExpanded = btn.classList.contains('expanded');
+  cfg.ids.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (isExpanded) { el.classList.add('hidden-card'); }
+    else { el.classList.remove('hidden-card'); setTimeout(() => { if (!el.classList.contains('visible')) observer.observe(el); }, 10); }
+  });
+  btn.classList.toggle('expanded');
+  btn.childNodes[0].textContent = isExpanded ? 'See More ' : 'See Less ';
+  if (isExpanded) {
+    const titleEl = document.getElementById(cfg.title);
+    if (titleEl) setTimeout(() => titleEl.scrollIntoView({ behavior:'smooth', block:'start' }), 50);
+  }
+}
+</script>
+
+<!-- Modal & Image Viewer -->
+<script>
+/* ══════════════════════════════════════════
+   MODAL DATA
+══════════════════════════════════════════ */
+const projectData = [
+  {
+    type: "Aplikasi Desktop", title: "SiJimpit-App", sub: "2024 · Proyek Akademik",
+    tags: ["HTML","CSS","JavaScript"],
+    desc: "Aplikasi berbasis desktop untuk pengelolaan pembayaran kas RT (jimpitan), meliputi pencatatan iuran warga, manajemen data pembayaran, serta pembuatan laporan keuangan secara terstruktur dan efisien.",
+    highlights: ["Menu Login (Admin/Warga)","Pencatatan transaksi iuran","Laporan keuangan otomatis"]
+  },
+  {
+    type: "Aplikasi Mobile", title: "CoffeGo", sub: "2025 · Proyek Akademik",
+    tags: ["Android Studio","Firebase","Midtrans"],
+    desc: "Aplikasi pemesanan kopi berbasis mobile yang memudahkan pengguna menjelajahi menu, melakukan pemesanan, dan memproses pembayaran dalam satu platform digital.",
+    highlights: ["Pemesanan online real-time","Integrasi pembayaran Midtrans","Manajemen detail transaksi"]
+  },
+  {
+    type: "Website", title: "Running Fest UNESA", sub: "2025 · Proyek Akademik",
+    tags: ["HTML","CSS","JavaScript"],
+    desc: "Website informasi event lari UNESA yang menampilkan program latihan, galeri kegiatan, dan sistem pendaftaran peserta secara online.",
+    highlights: ["Program latihan interaktif","Galeri event","Form pendaftaran peserta"]
+  },
+  {
+    type: "Sistem Informasi", title: "SINTESA", sub: "2025 · Proyek Akademik",
+    tags: ["VB.NET","SQL Server (SSMS)"],
+    desc: "Sistem Integrasi Akademik Terpadu berbasis desktop untuk pengelolaan KRS dan KHS mahasiswa, dilengkapi manajemen data dosen dan laporan nilai terintegrasi.",
+    highlights: ["Multi-role login (Admin/DPA/Mahasiswa)","Manajemen KRS & KHS","Ekspor transkrip nilai"]
+  },
+  {
+    type: "Grafika Komputer", title: "Model 3D Gedung FBS UNESA", sub: "2025 · Proyek Akademik",
+    tags: ["C++","C#","OpenGL","GLUT"],
+    desc: "Proyek pemodelan 3D Gedung Fakultas Bahasa dan Seni UNESA menggunakan OpenGL/GLUT, lengkap dengan sistem pencahayaan dan kontrol interaktif.",
+    highlights: ["Sistem pencahayaan dinamis (Lighting)","Kontrol navigasi keyboard","Kontrol kamera mouse"]
+  },
+  {
+    type: "Publikasi Ilmiah", title: "Jurnal KRS & KHS SINTESA", sub: "2025 · JTTP",
+    tags: ["Penelitian","JTTP"],
+    desc: "Publikasi jurnal ilmiah berjudul 'Perancangan Sistem Informasi KRS dan KHS untuk Pengelolaan Jadwal dan Nilai Perkuliahan' yang dipublikasikan di jurnal JTTP.",
+    highlights: ["Perancangan sistem KRS","Perancangan sistem KHS","Publikasi jurnal ilmiah"]
+  }
+];
+
+const expData = [
+  {
+    type: "Organisasi", title: "HIMAPALA UNESA", sub: "2025 — April 2026",
+    tags: ["Pecinta Alam","Kepanitiaan","Panjat Tebing"],
+    desc: "Aktif sebagai anggota HIMAPALA (Himpunan Mahasiswa Pecinta Alam) UNESA. Berpartisipasi dalam berbagai kegiatan organisasi dan alam bebas.",
+    list: ["Pendidikan Dasar Pecinta Alam","Kegiatan pendakian","Kegiatan eksplorasi alam","Kegiatan kepanitiaan organisasi","Pengenalan divisi Rafting","Latihan fisik dan kedisiplinan","Sekolah divisi Panjat Tebing"]
+  },
+  {
+    type: "Pengalaman Kerja", title: "Desain Grafis & Cetak", sub: "Percetakan Digital · 2022 – 2023",
+    tags: ["Desain Grafis","CorelDRAW","Photoshop"],
+    desc: "Bekerja sebagai desainer dan operator di usaha percetakan digital printing. Bertugas membuat desain banner, undangan, stiker, dan berbagai kebutuhan cetak pelanggan.",
+    highlights: ["Membuat 50+ desain untuk klien","Mengoperasikan mesin digital printing","Desain menggunakan CorelDRAW & Photoshop"],
+    photos: ["img/desain1.jpg","img/desain2.jpeg","img/desain3.jpeg","img/desain4.jpeg","img/desain5.jpeg","img/desain6.png","img/desain7.jpeg","img/desain8.jpeg","img/desain9.jpeg","img/desain10.jpg","img/desain11.jpeg","img/desain12.png"]
+  },
+  {
+    type: "Pengalaman Kerja", title: "Karyawan Toko Baju", sub: "2018 – 2022",
+    tags: ["Retail","Pelayanan Pelanggan"],
+    desc: "Bekerja sebagai karyawan toko baju. Bertugas melayani pelanggan, menata produk, dan membantu proses transaksi penjualan.",
+    highlights: ["Melayani pelanggan langsung","Mengelola stok dan display produk","Membantu transaksi pembayaran"]
+  },
+  {
+    type: "Wirausaha", title: "Usaha Kue Kering", sub: "2022 — Sekarang",
+    tags: ["Wirausaha","Baking","Marketing"],
+    desc: "Menjalankan usaha kue kering mandiri, terutama saat hari raya. Mengurus seluruh proses dari pembuatan, pengemasan, hingga pemasaran dan penjualan secara online maupun langsung.",
+    highlights: ["Produksi sendiri dari bahan baku","Pengemasan & branding produk","Pemasaran via media sosial"],
+    photos: ["img/baking1.jpeg","img/baking2.jpeg","img/baking3.jpeg","img/baking4.jpeg","img/baking5.jpeg","img/baking6.jpeg","img/baking7.jpeg"]
+  },
+  {
+    type: "Wirausaha", title: "Usaha Gelang Manik", sub: "2023",
+    tags: ["Wirausaha","Kerajinan Tangan","Marketing"],
+    desc: "Membuat dan menjual gelang manik-manik secara mandiri. Mengurus proses produksi, pengemasan, hingga promosi dan penjualan online.",
+    highlights: ["Desain & produksi aksesori sendiri","Pengemasan estetik","Pemasaran via media sosial"],
+    photos: ["img/gelang1.jpg","img/work4.jpeg","img/gelang2.jpg","img/gelang3.jpg","img/gelang4.jpg"]
+  }
+];
+
+/* ── OPEN MODAL ── */
+function openModal(kind, i) {
+  const d = kind === 'project' ? projectData[i] : expData[i];
+  if (!d) return;
+
+  // Build extra content (list or highlights)
+  let extraHtml = '';
+  if (d.list) {
+    extraHtml = `<ul class="modal-list">${d.list.map(item => `<li>${item}</li>`).join('')}</ul>`;
+  } else if (d.highlights) {
+    extraHtml = `<div class="modal-highlights">${d.highlights.map(h => `<div class="modal-highlight">${h}</div>`).join('')}</div>`;
+  }
+
+  // Build photo gallery toggle (if photos exist)
+  let photoHtml = '';
+  if (d.photos && d.photos.length > 0) {
+    const items = d.photos.map(src =>
+      `<div class="modal-photo-item" onclick="openImg('${src}')"><img src="${src}" alt="Foto" loading="lazy"></div>`
+    ).join('');
+    photoHtml = `
+      <button class="btn-view-photo" id="btnViewPhoto" onclick="toggleModalPhoto()">
+        <i class="fa-solid fa-images"></i>&nbsp; View Photo
+      </button>
+      <div class="modal-photo-gallery" id="modalPhotoGallery">
+        ${items}
+        <button class="btn-hide-photo" onclick="toggleModalPhoto()">
+          <i class="fa-solid fa-chevron-up" style="margin-right:5px;font-size:10px;"></i> Hide Photo
+        </button>
+      </div>
+    `;
+  }
+
+  document.getElementById('modalContent').innerHTML = `
+    <span class="modal-type">${d.type}</span>
+    <div class="modal-title">${d.title}</div>
+    <div class="modal-sub">${d.sub}</div>
+    <div class="modal-tags">${d.tags.map(t => `<span class="modal-tag">${t}</span>`).join('')}</div>
+    <p class="modal-desc">${d.desc}</p>
+    ${extraHtml}
+    ${photoHtml}
+  `;
+
+  document.getElementById('projectModal').classList.add('open');
+  document.body.style.overflow = 'hidden'; // Prevent background scroll
+}
+
+/* ── CLOSE MODAL — HANYA via tombol X atau Escape ── */
+function closeModal() {
+  document.getElementById('projectModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* PERBAIKAN: Hapus event listener klik overlay untuk menutup.
+   Modal hanya ditutup via tombol X atau tombol Escape. */
+document.getElementById('projectModal').addEventListener('click', function (e) {
+  // Hanya tutup jika klik tepat pada overlay (bukan modal-box)
+  if (e.target === this) {
+    // Tidak melakukan apa-apa — sesuai permintaan
+  }
+});
+
+/* ── TOGGLE PHOTO GALLERY ── */
+function toggleModalPhoto() {
+  const gallery = document.getElementById('modalPhotoGallery');
+  const btnTop = document.getElementById('btnViewPhoto');
+  if (!gallery || !btnTop) return;
+  const isOpen = gallery.classList.contains('open');
+  gallery.classList.toggle('open', !isOpen);
+  btnTop.style.display = isOpen ? 'inline-flex' : 'none';
+}
+
+/* ── IMAGE VIEWER ── */
+function openImg(src) {
+  document.getElementById('imgViewerSrc').src = src;
+  document.getElementById('imgViewer').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+/* PERBAIKAN: Hapus event listener klik overlay untuk menutup.
+   Image viewer hanya ditutup via tombol X atau Escape. */
+function closeImg() {
+  document.getElementById('imgViewer').classList.remove('open');
+  document.getElementById('imgViewerSrc').src = '';
+  document.body.style.overflow = '';
+}
+
+/* Image viewer — klik di luar gambar juga TIDAK menutup */
+document.getElementById('imgViewer').addEventListener('click', function (e) {
+  // Tidak melakukan apa-apa saat klik overlay
+});
+
+/* ── KEYBOARD: ESC menutup modal/viewer ── */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closeModal();
+    closeImg();
+  }
+});
+</script>
+
+<!-- Typing effect -->
+<script>
+const typingTexts = ["IT Student", "Interested in UI/UX"];
+let typingCount = 0, typingIndex = 0;
+(function type() {
+  if (typingCount === typingTexts.length) typingCount = 0;
+  const currentText = typingTexts[typingCount];
+  const letter = currentText.slice(0, ++typingIndex);
+  document.getElementById('typing-text').textContent = letter;
+  if (letter.length === currentText.length) {
+    setTimeout(() => { typingIndex = 0; typingCount++; type(); }, 1200);
+  } else {
+    setTimeout(type, 70);
+  }
+})();
+</script>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+(function () { emailjs.init("s1C9Msip0xhpkd2UO"); })();
+
+function sendEmail() {
+  const name    = document.getElementById('formName').value.trim();
+  const email   = document.getElementById('formEmail').value.trim();
+  const subject = document.getElementById('formSubject').value.trim();
+  const message = document.getElementById('formMessage').value.trim();
+  const status  = document.getElementById('formStatus');
+  const btn     = document.getElementById('btnSend');
+
+  if (!name || !email || !subject || !message) {
+    status.textContent = '⚠️ Semua kolom wajib diisi!';
+    status.className = 'form-status error';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Mengirim...';
+
+  emailjs.send('service_kqwli1l', 'template_84f4nhs', { name, email, subject, message })
+    .then(() => {
+      status.textContent = '✅ Pesan berhasil dikirim!';
+      status.className = 'form-status success';
+      document.getElementById('formName').value = '';
+      document.getElementById('formEmail').value = '';
+      document.getElementById('formSubject').value = '';
+      document.getElementById('formMessage').value = '';
+    })
+    .catch(() => {
+      status.textContent = '❌ Gagal mengirim, coba lagi.';
+      status.className = 'form-status error';
+    })
+    .finally(() => {
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fa-solid fa-paper-plane" style="font-size:13px;"></i> Kirim Pesan';
+    });
+}
+</script>
+
+</body>
+</html>
