@@ -1878,7 +1878,7 @@ function sendEmail() {
       document.getElementById('formEmail').value = '';
       document.getElementById('formSubject').value = '';
       document.getElementById('formMessage').value = '';
-    })
+    }) 
     .catch(() => {
       status.textContent = '❌ Gagal mengirim, coba lagi.';
       status.className = 'form-status error';
