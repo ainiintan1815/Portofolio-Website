@@ -1031,8 +1031,9 @@ body.light-mode .btn-hide-photo { color:#3d2d50; }
         </div>
       </div>
       <div class="about-main fade-right" style="transition-delay:0.1s">
-        <p>Halo! Saya <strong>Aini Intan Saylendra</strong>, biasa dipanggil Aini atau Ai. Saya mahasiswa semester 4 Pendidikan Teknologi Informasi di Universitas Negeri Surabaya (UNESA).</p>
-        <p>Saya merupakan lulusan SMK Multimedia tahun 2023, yang memiliki pengalaman dalam penggunaan tools desain grafis serta pernah bekerja di industri percetakan digital. Di lingkungan kampus, saya memiliki pengalaman pada organisasi <strong>HIMAPALA UNESA</strong> dan memiliki beberapa proyek akademik serta wirausaha. Selain itu, saya tertarik pada bidang teknik informatika dan desain grafis, serta berniat untuk mempelajari lebih dalam lagi.</p>
+        <p>Halo! Saya <strong>Aini Intan Saylendra</strong>, biasa dipanggil Aini atau Ai. Saya mahasiswa aktif semester 4 jurusan Pendidikan Teknologi Informasi di Universitas Negeri Surabaya (UNESA).</p>
+        <p>Saya merupakan lulusan SMK Multimedia tahun 2023, yang memiliki pengalaman dalam penggunaan tools desain grafis serta pernah bekerja di industri percetakan digital. Di lingkungan kampus, saya memiliki pengalaman pada organisasi <strong>HIMAPALA UNESA</strong> dan memiliki beberapa proyek akademik serta wirausaha. Melalui pengalaman tersebut, saya mengasah kemampuan kerja sama tim, kepemimpinan, pemecahan masalah, serta pengelolaan proyek.</p>
+        <p>Saat ini, saya memiliki ketertarikan pada bidang UI/UX Design dan Software Development. Saya tertarik untuk menciptakan solusi digital yang tidak hanya memiliki tampilan yang menarik, tetapi juga memberikan pengalaman pengguna yang efektif serta mudah digunakan. Saya terus memperdalam pengetahuan mengenai pengembangan perangkat lunak, desain antarmuka, serta teknologi terkini untuk mendukung pengembangan produk digital yang inovatif dan bermanfaat.</p>
         <h3 style="font-family:var(--serif);font-weight:400;font-size:1.1rem;margin-top:32px;margin-bottom:0;color:var(--text-dim);">Pendidikan</h3>
         <div class="edu-list">
           <div class="edu-item">
@@ -1196,7 +1197,20 @@ body.light-mode .btn-hide-photo { color:#3d2d50; }
         </div>
       </div>
 
-      <div class="project-card fade-up hidden-card" id="proj-extra-5" style="transition-delay:0.12s" onclick="openModal('project', 7)">
+      <div class="project-card fade-up hidden-card" id="proj-extra-5" style="transition-delay:0.06s" onclick="openModal('project',7)">
+        <div class="project-img-wrap">
+          <img src="img/proyek9.png" class="project-card-img" alt="Portal Berita Kini">
+          <button class="view-btn" onclick="event.stopPropagation(); openImg('img/proyek9.png')">View</button>
+        </div>
+        <div class="project-card-body">
+          <span class="project-type">Website</span>
+          <div class="project-title">Portal Berita Kini</div>
+          <div class="project-year">2026 · Proyek Pribadi</div>
+          <div class="project-tags"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
+        </div>
+      </div>
+
+      <div class="project-card fade-up hidden-card" id="proj-extra-6" style="transition-delay:0.12s" onclick="openModal('project', 8)">
         <div class="project-img-wrap">
           <img src="img/proyek8.png" class="project-card-img" alt="Model 3D">
           <button class="view-btn" onclick="event.stopPropagation(); openImg('img/proyek8.png')">View</button>
@@ -1209,7 +1223,7 @@ body.light-mode .btn-hide-photo { color:#3d2d50; }
         </div>
       </div>
 
-      <div class="project-card fade-up hidden-card" id="proj-extra-6" style="transition-delay:0.18s" onclick="openModal('project', 8)">
+      <div class="project-card fade-up hidden-card" id="proj-extra-7" style="transition-delay:0.18s" onclick="openModal('project', 9)">
         <div class="project-img-wrap">
           <img src="img/proyek9.jpg" class="project-card-img" alt="Jurnal">
           <button class="view-btn" onclick="event.stopPropagation(); openImg('img/proyek9.jpg')">View</button>
@@ -1725,7 +1739,7 @@ function animateCounter(el, target) {
 /* ── SEE MORE TOGGLE ── */
 function toggleSeeMore(section) {
   const map = {
-    projects: { ids:['proj-extra-1','proj-extra-2','proj-extra-3','proj-extra-4','proj-extra-5','proj-extra-6'], btn:'btnSeeMoreProjects', title:'projects-title' },
+    projects: { ids:['proj-extra-1','proj-extra-2','proj-extra-3','proj-extra-4','proj-extra-5','proj-extra-6','proj-extra-7'], btn:'btnSeeMoreProjects', title:'projects-title' },
     exp:      { ids:['exp-extra-1','exp-extra-2'],                   btn:'btnSeeMoreExp',     title:'experience-title' },
     cert:     { ids:['cert-extra-1','cert-extra-2','cert-extra-3','cert-extra-4','cert-extra-5'], btn:'btnSeeMoreCert', title:'cert-title' }
   };
@@ -1760,46 +1774,61 @@ const projectData = [
     desc: "Aplikasi berbasis desktop untuk pengelolaan pembayaran kas RT (jimpitan), meliputi pencatatan iuran warga, manajemen data pembayaran, serta pembuatan laporan keuangan secara terstruktur dan efisien.",
     highlights: ["Menu Login (Admin/Warga)","Pencatatan transaksi iuran","Laporan keuangan otomatis"]
   },
+
   {
     type: "Aplikasi Mobile", title: "CoffeGo", sub: "2025 · Proyek Akademik",
     tags: ["Android Studio","Firebase","Midtrans"],
     desc: "Aplikasi pemesanan kopi berbasis mobile yang memudahkan pengguna menjelajahi menu, melakukan pemesanan, dan memproses pembayaran dalam satu platform digital.",
     highlights: ["Pemesanan online real-time","Integrasi pembayaran Midtrans","Manajemen detail transaksi"]
   },
+
   {
     type: "Website", title: "Running Fest UNESA", sub: "2025 · Proyek Akademik",
     tags: ["HTML","CSS","JavaScript"],
     desc: "Website informasi event lari UNESA yang menampilkan program latihan, galeri kegiatan, dan sistem pendaftaran peserta secara online.",
     highlights: ["Program latihan interaktif","Galeri event","Form pendaftaran peserta"]
   },
+
   {
     type: "Sistem Informasi", title: "SINTESA", sub: "2025 · Proyek Akademik",
     tags: ["VB.NET","SQL Server (SSMS)"],
     desc: "Sistem Integrasi Akademik Terpadu berbasis desktop untuk pengelolaan KRS dan KHS mahasiswa, dilengkapi manajemen data dosen dan laporan nilai terintegrasi.",
     highlights: ["Multi-role login (Admin/DPA/Mahasiswa)","Manajemen KRS & KHS","Ekspor transkrip nilai"]
   },
+
   {
     type: "Website", title: "Portofolio [1]", sub: "2026 · Proyek Pribadi",
     tags: ["HTML", "CSS", "JavaScript"],
     desc: "Proyek Portofolio saya yang pertama."
   },
+
   {
     type: "Website", title: "Portofolio [2]", sub: "2026 · Proyek Pribadi",
     tags: ["HTML", "CSS", "JavaScript"],
     desc: "Proyek Portofolio saya yang kedua."
   },
+
   {
     type: "Website", title: "Sistem Perpustakaan FMIPA", sub: "2026 · Proyek Akademik",
     tags: ["HTML", "CSS", "JavaScript","SQL Server (SSMS)"],
     desc: "Sistem manajemen perpustakaan berbasis web untuk mengelola buku, anggota, dan transaksi.",
     highlights: ["Multi-role login (Admin/Petugas/Mahasiswa/Dosen)","Manajemen pengelolaan Peminjaman & Pengembalian buku","Ekspor laporan bulanan"]
   },
+
+  {
+    type: "Website", title: "Portal Berita Kini", sub: "2026 · Proyek Pribadi",
+    tags: ["HTML", "CSS", "JavaScript"],
+    desc: "Portal berita yang menampilkan berita terkini dari berbagai kategori secara real-time dan responsif.",
+    highlights: ["Kategori berita lengkap seraca real-time","Pencarian berita","Trending news dan breaking news ticker"]
+  },
+
   {
     type: "Grafika Komputer", title: "Model 3D Gedung FBS UNESA", sub: "2025 · Proyek Akademik",
     tags: ["C++","C#","OpenGL","GLUT"],
     desc: "Proyek pemodelan 3D Gedung Fakultas Bahasa dan Seni UNESA menggunakan OpenGL/GLUT, lengkap dengan sistem pencahayaan dan kontrol interaktif.",
     highlights: ["Sistem pencahayaan dinamis (Lighting)","Kontrol navigasi keyboard","Kontrol kamera mouse"]
   },
+
   {
     type: "Publikasi Ilmiah", title: "Jurnal KRS & KHS SINTESA", sub: "2025 · JTTP",
     tags: ["Penelitian","JTTP"],
@@ -1946,7 +1975,7 @@ document.addEventListener('keydown', e => {
 
 <!-- Typing effect -->
 <script>
-const typingTexts = ["IT Student", "Interested in UI/UX"];
+const typingTexts = ["IT Student", "Interested in UI/UX", "Aspiring Developer"];
 let typingCount = 0, typingIndex = 0;
 (function type() {
   if (typingCount === typingTexts.length) typingCount = 0;
